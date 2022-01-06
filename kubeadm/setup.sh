@@ -1,4 +1,5 @@
 #/bin/sh
+sudo curl -o /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo
 
 # install some tools
 sudo yum install -y vim telnet bind-utils wget
