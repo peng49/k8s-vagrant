@@ -259,9 +259,6 @@ done;
 
 [https://blog.tekspace.io/setup-kubernetes-cluster-on-centos-7/](https://blog.tekspace.io/setup-kubernetes-cluster-on-centos-7/)
 
-
-
-
 [https://blog.51cto.com/ckl893/2343871](https://blog.51cto.com/ckl893/2343871)
 
 [基于阿里云镜像站安装Kubernetes](http://ljchen.net/2018/10/23/%E5%9F%BA%E4%BA%8E%E9%98%BF%E9%87%8C%E4%BA%91%E9%95%9C%E5%83%8F%E7%AB%99%E5%AE%89%E8%A3%85kubernetes/)
