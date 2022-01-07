@@ -66,5 +66,8 @@ sudo systemctl stop firewalld
 sudo systemctl disable firewalld
 sudo swapoff -a
 
+# 永久关闭swap分区
+sudo sed -ri 's/.*swap.*/#&/' /etc/fstab
+
 systemctl enable docker.service
 systemctl enable kubelet.service
