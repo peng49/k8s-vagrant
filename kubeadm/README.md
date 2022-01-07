@@ -238,6 +238,23 @@ kube-system   weave-net-jnlkn                      2/2     Running   0          
 ```
 
 
+
+获取国内镜像
+```shell
+for i in `kubeadm config images list`; do 
+  imageName=${i#k8s.gcr.io/}
+  aliName=${imageName}
+  if [ $imageName == 'coredns/coredns:v1.8.6' ] 
+  then
+    aliName='coredns:v1.8.6'
+  fi 
+  
+  docker pull registry.aliyuncs.com/google_containers/$aliName
+  docker tag registry.aliyuncs.com/google_containers/$aliName k8s.gcr.io/$imageName
+  docker rmi registry.aliyuncs.com/google_containers/$aliName
+done;
+```
+
 ## Reference
 
 [https://blog.tekspace.io/setup-kubernetes-cluster-on-centos-7/](https://blog.tekspace.io/setup-kubernetes-cluster-on-centos-7/)
@@ -246,3 +263,11 @@ kube-system   weave-net-jnlkn                      2/2     Running   0          
 
 
 [https://blog.51cto.com/ckl893/2343871](https://blog.51cto.com/ckl893/2343871)
+
+[基于阿里云镜像站安装Kubernetes](http://ljchen.net/2018/10/23/%E5%9F%BA%E4%BA%8E%E9%98%BF%E9%87%8C%E4%BA%91%E9%95%9C%E5%83%8F%E7%AB%99%E5%AE%89%E8%A3%85kubernetes/)
+
+[kubernetes一些报错集合](https://www.jianshu.com/p/8e78e0abddf9)
+
+[\[ERROR FileAvailable--etc-kubernetes-manifests-kube-apiserver.yaml\]: /etc/kubernetes/manifests/kube-apiserver.yaml already exists](https://github.com/kubernetes/kubeadm/issues/1616)
+
+[Kubernetes启动报错 kubelet cgroup driver: “cgroupfs“ is different from dock](https://blog.csdn.net/sd4493091/article/details/103645032)

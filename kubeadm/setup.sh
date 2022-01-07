@@ -18,6 +18,12 @@ else
     echo "docker user group already exists"
 fi
 
+sudo bash -c 'cat <<EOF > /etc/docker/daemon.json
+{
+        "exec-opts": ["native.cgroupdriver=systemd"]
+}
+EOF'
+
 sudo gpasswd -a $USER docker
 sudo systemctl restart docker
 
@@ -49,6 +55,11 @@ net.bridge.bridge-nf-call-ip6tables = 1
 net.bridge.bridge-nf-call-iptables = 1
 net.ipv4.ip_forward=1
 EOF'
+
+sudo bash -c 'cat <<EOF >  /etc/sysconfig/kubelet
+KUBELET_EXTRA_ARGS="--fail-swap-on=false --cgroup-driver=systemd"
+EOF'
+
 sudo sysctl --system
 
 sudo systemctl stop firewalld
