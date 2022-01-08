@@ -323,5 +323,5 @@ To see the stack trace of this error execute with --v=5 or higher
 
 [\[ERROR FileAvailable--etc-kubernetes-manifests-kube-apiserver.yaml\]: /etc/kubernetes/manifests/kube-apiserver.yaml already exists](https://github.com/kubernetes/kubeadm/issues/1616)
 
-[Kubernetes启动报错 kubelet cgroup driver: “cgroupfs“ is different from dock](https://blog.csdn.net/sd4493091/article/details/103645032)
+[Kubernetes启动报错 kubelet cgroup driver: “cgroupfs“ is different from docker](https://blog.csdn.net/sd4493091/article/details/103645032)
 
