@@ -240,5 +240,59 @@ kube-system   weave-net-jnlkn                      2/2     Running   0          
 
 ## Reference
 
-[https://blog.tekspace.io/setup-kubernetes-cluster-on-centos-7/](https://blog.tekspace.io/setup-kubernetes-cluster-on-centos-7/
-)
+[https://blog.tekspace.io/setup-kubernetes-cluster-on-centos-7/](https://blog.tekspace.io/setup-kubernetes-cluster-on-centos-7/)
+
+## 异常
+1. 初始化报错
+```shell
+[init] Using Kubernetes version: v1.23.1
+[preflight] Running pre-flight checks
+        [WARNING Swap]: swap is enabled; production deployments should disable swap unless testing the NodeSwap feature gate of the kubelet
+[preflight] The system verification failed. Printing the output from the verification:
+KERNEL_VERSION: 3.10.0-327.4.5.el7.x86_64
+CONFIG_NAMESPACES: enabled
+CONFIG_NET_NS: enabled
+CONFIG_PID_NS: enabled
+CONFIG_IPC_NS: enabled
+CONFIG_UTS_NS: enabled
+CONFIG_CGROUPS: enabled
+CONFIG_CGROUP_CPUACCT: enabled
+CONFIG_CGROUP_DEVICE: enabled
+CONFIG_CGROUP_FREEZER: enabled
+CONFIG_CGROUP_PIDS: not set
+CONFIG_CGROUP_SCHED: enabled
+CONFIG_CPUSETS: enabled
+CONFIG_MEMCG: enabled
+CONFIG_INET: enabled
+CONFIG_EXT4_FS: enabled (as module)
+CONFIG_PROC_FS: enabled
+CONFIG_NETFILTER_XT_TARGET_REDIRECT: enabled (as module)
+CONFIG_NETFILTER_XT_MATCH_COMMENT: enabled (as module)
+CONFIG_FAIR_GROUP_SCHED: enabled
+CONFIG_OVERLAY_FS: enabled (as module)
+CONFIG_AUFS_FS: not set - Required for aufs.
+CONFIG_BLK_DEV_DM: enabled (as module)
+CONFIG_CFS_BANDWIDTH: enabled
+CONFIG_CGROUP_HUGETLB: enabled
+CONFIG_SECCOMP: enabled
+CONFIG_SECCOMP_FILTER: enabled
+DOCKER_VERSION: 20.10.12
+DOCKER_GRAPH_DRIVER: devicemapper
+OS: Linux
+CGROUPS_CPU: enabled
+CGROUPS_CPUACCT: enabled
+CGROUPS_CPUSET: enabled
+CGROUPS_DEVICES: enabled
+CGROUPS_FREEZER: enabled
+CGROUPS_MEMORY: enabled
+CGROUPS_PIDS: missing
+CGROUPS_HUGETLB: enabled
+error execution phase preflight: [preflight] Some fatal errors occurred:
+        [ERROR SystemVerification]: unexpected kernel config: CONFIG_CGROUP_PIDS
+        [ERROR SystemVerification]: missing required cgroups: pids
+[preflight] If you know what you are doing, you can make a check non-fatal with `--ignore-preflight-errors=...`
+To see the stack trace of this error execute with --v=5 or higher
+```
+
+[https://stackoverflow.com/questions/65884578/kubernetes-kubeadm-init-cgroups-pids-missing](https://stackoverflow.com/questions/65884578/kubernetes-kubeadm-init-cgroups-pids-missing)
+[https://www.jianshu.com/p/a2e44fe93f88](https://www.jianshu.com/p/a2e44fe93f88)
