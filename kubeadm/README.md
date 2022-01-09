@@ -342,3 +342,6 @@ Deployment
 
 > kubectl get deployments -o wide
 
+
+> kubectl exec -it [pod-name] -n [namespace] -- sh
+
