@@ -71,3 +71,22 @@ sudo sed -ri 's/.*swap.*/#&/' /etc/fstab
 
 systemctl enable docker.service
 systemctl enable kubelet.service
+
+
+
+sudo bash -c 'cat <<EOF >  /tmp/local.sh
+for i in \`kubeadm config images list\`; do
+  imageName=\${i#k8s.gcr.io/}
+  aliName=\${imageName}
+  if [ \$imageName == "coredns/coredns:v1.8.6" ]
+  then
+    aliName="coredns:v1.8.6"
+  fi
+
+  docker pull registry.aliyuncs.com/google_containers/\$aliName
+  docker tag registry.aliyuncs.com/google_containers/\$aliName k8s.gcr.io/\$imageName
+  docker rmi registry.aliyuncs.com/google_containers/\$aliName
+done;
+EOF'
+
+sudo sh /tmp/local.sh
