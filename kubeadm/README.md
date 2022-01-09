@@ -268,3 +268,20 @@ done;
 [\[ERROR FileAvailable--etc-kubernetes-manifests-kube-apiserver.yaml\]: /etc/kubernetes/manifests/kube-apiserver.yaml already exists](https://github.com/kubernetes/kubeadm/issues/1616)
 
 [Kubernetes启动报错 kubelet cgroup driver: “cgroupfs“ is different from dock](https://blog.csdn.net/sd4493091/article/details/103645032)
+
+
+
+### 常用命令
+
+Deployment
+创建
+> kubectl create -f nginx.yml
+
+创建或者更新
+> kubectl apply -f nginx.yml
+
+> kubectl delete deployments.apps [deployment-name]
+
+> kubectl edit deployment [deployment-name]
+
+> kubectl get deployments -o wide
