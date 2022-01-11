@@ -345,3 +345,21 @@ Deployment
 
 > kubectl exec -it [pod-name] -n [namespace] -- sh
 
+
+[kubeadm集群添加新master或node节点](https://blog.csdn.net/weixin_46152207/article/details/111870720)
+[Creating Highly Available clusters with kubeadm](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/high-availability/)
+
+首先在 master 上生成新的token
+> kubeadm token create --print-join-command
+
+在master上生成用于新master加入的证书
+> kubeadm init phase upload-certs --experimental-upload-certs
+
+添加新node
+> kubeadm join 192.168.205.120:6443 --token okdfch.fgiw682na0ef6kn9 --discovery-token-ca-cert-hash sha256:c574be327af48b17d24b99fbb578fcad74ecf33b4e143d2e3070343a5c3f7e31
+
+添加新master，把红色部分加到 –experimental-control-plane --certificate-key 后
+> kubeadm join 192.168.205.120:6443 --token okdfch.fgiw682na0ef6kn9 \
+>   --discovery-token-ca-cert-hash sha256:c574be327af48b17d24b99fbb578fcad74ecf33b4e143d2e3070343a5c3f7e31 \
+>   --experimental-control-plane \ 
+>   --certificate-key e799a655f667fc327ab8c91f4f2541b57b96d2693ab5af96314ebddea7a68526
