@@ -361,5 +361,5 @@ Deployment
 添加新master，把红色部分加到 –experimental-control-plane --certificate-key 后
 > kubeadm join 192.168.205.120:6443 --token okdfch.fgiw682na0ef6kn9 \
 >   --discovery-token-ca-cert-hash sha256:c574be327af48b17d24b99fbb578fcad74ecf33b4e143d2e3070343a5c3f7e31 \
->   --experimental-control-plane \ 
+>   --control-plane \ 
 >   --certificate-key e799a655f667fc327ab8c91f4f2541b57b96d2693ab5af96314ebddea7a68526
