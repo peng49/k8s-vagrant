@@ -27,3 +27,13 @@ EOF'
 
 [Install MongoDB Community Edition on Red Hat or CentOS](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-red-hat/)
 [How to Install MongoDB on CentOS 7](https://www.liquidweb.com/kb/how-to-install-mongodb-on-centos-7/)
+
+
+## 基本操作
+
+### 创建用户
+> db.createUser({user:"admin",pwd:"Admin@123",roles:["root"]})
+
+
+[How to secure MongoDB with username and password](https://stackoverflow.com/questions/4881208/how-to-secure-mongodb-with-username-and-password)
+[db.createUser()](https://docs.mongodb.com/manual/reference/method/db.createUser/)
