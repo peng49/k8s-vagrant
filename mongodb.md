@@ -16,14 +16,14 @@ EOF'
 
 
 ## 启动/关闭服务
-启动
+`启动
 >sudo systemctl start mongod
 
 关闭
 >sudo systemctl stop mongod
 
 查看服务状态
->sudo systemctl status mongod
+>sudo systemctl status mongod`
 
 [Install MongoDB Community Edition on Red Hat or CentOS](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-red-hat/)
 [How to Install MongoDB on CentOS 7](https://www.liquidweb.com/kb/how-to-install-mongodb-on-centos-7/)
@@ -33,6 +33,15 @@ EOF'
 
 ### 创建用户
 > db.createUser({user:"admin",pwd:"Admin@123",roles:["root"]})
+
+### 用户认证
+mongo登录客户端
+```
+> use admin
+switched to db admin
+> db.auth('admin','Admin@123')
+1
+```
 
 
 [How to secure MongoDB with username and password](https://stackoverflow.com/questions/4881208/how-to-secure-mongodb-with-username-and-password)
